@@ -4,7 +4,7 @@
   when: ansible_lsb.codename == 'wheezy'
 
 - name: install zabbix agent
-  apt: pkg=zabbix-agent state=latest
+  apt: pkg=zabbix-agent state={{ zabbix_agent_state }}
   when: ansible_pkg_mgr == 'apt'
 
 - name: configure zabbix agent

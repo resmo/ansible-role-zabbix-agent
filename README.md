@@ -29,6 +29,14 @@ Node Hostname in Zabbix:
 
 `zabbix_agent_hostname`. Default `{{ ansible_fqdn }}`.
 
+Zabbix Agent install state:
+---
+
+Options: `latest|installed`
+Note: `absent` is not yet possible. 
+
+`zabbix_agent_state`. Default `installed`.
+
 Homepage: 
 ===
 
