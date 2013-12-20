@@ -1,0 +1,9 @@
+---
+# hostname of the zabbix server
+zabbix_server: "zabbix.{{ ansible_domain }}"
+
+# Bind agent to an IP, e.g. ansible_eth0.ipv4.address
+zabbix_agent_listen_ip: "0.0.0.0"
+
+# Name of the host
+zabbix_agent_hostname: "{{ ansible_fqdn }}"
