@@ -1,4 +1,11 @@
 ---
+# Set 'zabbix.com' to use repo http://repo.zabbix.com/zabbix/
+zabbix_repo: 'zabbix.com'
+
+# zabbix minor version
+# NOTE: only relevant if 'zabbix_repo' is 'yes'
+zabbix_minor_version: '2.0'
+
 # hostname of the zabbix server
 zabbix_server: "zabbix.{{ ansible_domain }}"
 
@@ -9,4 +16,5 @@ zabbix_agent_listen_ip: "0.0.0.0"
 zabbix_agent_hostname: "{{ ansible_fqdn }}"
 
 # Package state:
+# NOTE: absent does not yet work as expected.
 zabbix_agent_state: installed

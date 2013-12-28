@@ -1,0 +1,11 @@
+---
+- name: add zabbix key
+  apt_key: url=http://repo.zabbix.com/zabbix-official-repo.key state=present
+  when: zabbix_repo == 'zabbix.com'
+
+- name: add zabbix repo
+  apt_repository: repo='deb http://repo.zabbix.com/zabbix/{{ zabbix_minor_version }}/debian/{{ ansible_lsb.codename }} main contrib non-free' state=present
+  when: zabbix_repo == 'zabbix.com'
+
+- name: install zabbix agent
+  apt: pkg=zabbix-agent state={{ zabbix_agent_state }}

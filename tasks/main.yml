@@ -1,11 +1,11 @@
 ---
-- name: add wheezy backports repo
-  apt_repository: repo='deb http://ftp.ch.debian.org/debian/ wheezy-backports main contrib non-free' state=present
-  when: ansible_lsb.codename == 'wheezy'
+- include: Debian.yml
+  when: ansible_os_family == 'Debian'
+  tags: package
 
-- name: install zabbix agent
-  apt: pkg=zabbix-agent state={{ zabbix_agent_state }}
-  when: ansible_pkg_mgr == 'apt'
+- include: RedHat.yml
+  when: ansible_os_family == 'RedHat'
+  tags: package
 
 - name: configure zabbix agent
   template: src=zabbix_agentd.conf.j2 dest=/etc/zabbix/zabbix_agentd.conf
