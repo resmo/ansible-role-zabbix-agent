@@ -4,7 +4,7 @@
   when: zabbix_agent_config_repo == 'zabbix.com'
 
 - name: add zabbix repo
-  apt_repository: repo='deb http://repo.zabbix.com/zabbix/{{ zabbix_agent_config_minor_version }}/debian/{{ ansible_lsb.codename }} main contrib non-free' state=present
+  apt_repository: repo='deb http://repo.zabbix.com/zabbix/{{ zabbix_agent_config_minor_version }}/{{ ansible_distribution|lower }} {{ ansible_lsb.codename }} main contrib non-free' state=present
   when: zabbix_agent_config_repo == 'zabbix.com'
 
 - name: install zabbix agent
