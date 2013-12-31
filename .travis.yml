@@ -1,6 +1,8 @@
+---
 language: python
 python: "2.7"
 install:
   - pip install ansible
 script:
-  - ansible-playbook --syntax-check -i role.yml
+  - echo localhost > inventory
+  - ansible-playbook --syntax-check -i inventory role.yml
