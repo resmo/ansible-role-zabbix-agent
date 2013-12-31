@@ -10,6 +10,8 @@
 - name: configure zabbix agent
   template: src=zabbix_agentd.conf.j2 dest=/etc/zabbix/zabbix_agentd.conf
   notify: restart zabbix-agent
+  tags: configuration
 
-- name: run zabbix agent
-  service: name=zabbix-agent state=running enabled=yes
+- name: start/stop zabbix agent
+  service: name=zabbix-agent state={{ zabbix_agent_service_state }} enabled={{ zabbix_agent_service_enabled }}
+  tags: service

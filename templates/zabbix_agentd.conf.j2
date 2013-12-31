@@ -84,7 +84,7 @@ LogFileSize=0
 # Default:
 # Server=
 
-Server={{ zabbix_server }}
+Server={{ zabbix_agent_config_server }}
 
 ### Option: ListenPort
 #	Agent will listen on this port for connections from the server.
@@ -100,7 +100,7 @@ Server={{ zabbix_server }}
 #
 # Mandatory: no
 # Default:
-ListenIP={{ zabbix_agent_listen_ip }}
+ListenIP={{ zabbix_agent_config_listen_ip }}
 
 ### Option: StartAgents
 #	Number of pre-forked instances of zabbix_agentd that process passive checks.
@@ -136,7 +136,7 @@ ListenIP={{ zabbix_agent_listen_ip }}
 # Default:
 # Hostname=
 
-Hostname={{ zabbix_agent_hostname }}
+Hostname={{ zabbix_agent_config_hostname }}
 
 ### Option: HostnameItem
 #	Item used for generating Hostname if it is undefined.
