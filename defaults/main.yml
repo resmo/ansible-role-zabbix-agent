@@ -20,3 +20,4 @@ zabbix_agent_config_hostname: '{{ ansible_fqdn }}'
 zabbix_agent_pkg_state: installed
 
 zabbix_agent_service_state: started
+zabbix_agent_service_enabled: yes
