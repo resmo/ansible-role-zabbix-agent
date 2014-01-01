@@ -8,4 +8,4 @@
   when: zabbix_agent_config_repo == 'zabbix.com'
 
 - name: install zabbix agent
-  apt: pkg=zabbix-agent state={{ zabbix_agent_state }}
+  apt: pkg=zabbix-agent state={{ zabbix_agent_pkg_state }}

@@ -6,4 +6,4 @@
   template: src=zabbix.repo.j2 dest=/etc/yum.repo.d/zabbix.repo
 
 - name: install zabbix agent
-  yum: name=zabbix-agent state={{ zabbix_agent_state }}
+  yum: name=zabbix-agent state={{ zabbix_agent_pkg_state }}
