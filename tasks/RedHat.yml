@@ -1,9 +1,0 @@
----
-- name: install zabbix rpm key
-  rpm_key: key=http://repo.zabbix.com/zabbix-official-repo.key state=present
-
-- name: setup zabbix repo
-  template: src=zabbix.repo.j2 dest=/etc/yum.repo.d/zabbix.repo
-
-- name: install zabbix agent
-  yum: name=zabbix-agent state={{ zabbix_agent_pkg_state }}

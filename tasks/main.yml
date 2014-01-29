@@ -1,9 +1,11 @@
 ---
-- include: Debian.yml
+- name: install zabbix agent
+  apt: pkg=zabbix-agent state={{ zabbix_agent_pkg_state }}
   when: ansible_os_family == 'Debian'
   tags: package
 
-- include: RedHat.yml
+- name: install zabbix agent
+  yum: name=zabbix-agent state={{ zabbix_agent_pkg_state }}
   when: ansible_os_family == 'RedHat'
   tags: package
 

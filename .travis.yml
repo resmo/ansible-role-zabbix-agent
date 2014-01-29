@@ -6,7 +6,8 @@ before_install:
  - sudo apt-get install -qq python-apt python-pycurl
 install:
   - pip install ansible
+  - ansible-galaxy install resmo.zabbix-common
 script:
   - echo localhost > inventory
-  - ansible-playbook --syntax-check -i inventory role.yml
-  - ansible-playbook -i inventory role.yml --connection=local --sudo -vvvv
+  - ansible-playbook -i inventory --syntax-check --list-tasks role.yml
+  - ansible-playbook -i inventory --connection=local --sudo -vvvv role.yml

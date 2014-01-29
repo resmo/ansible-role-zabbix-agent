@@ -1,11 +1,4 @@
 ---
-# Set 'zabbix.com' to use repo http://repo.zabbix.com/zabbix/
-zabbix_agent_config_repo: 'zabbix.com'
-
-# zabbix minor version
-# NOTE: only relevant if 'zabbix_repo' is 'zabbix.com'
-zabbix_agent_config_minor_version: '2.0'
-
 # hostname of the zabbix server
 zabbix_agent_config_server: 'zabbix.{{ ansible_domain }}'
 

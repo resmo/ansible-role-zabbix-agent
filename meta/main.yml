@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: René Moser
-  description: zabbix agent role
+  description: Zabbix agent role
   company: Moser Systems
   license: MIT
   min_ansible_version: 1.4
@@ -19,4 +19,5 @@ galaxy_info:
     - wheezy
   categories:
   - monitoring
-dependencies: []
+dependencies:
+  - { role: resmo.zabbix-common }
