@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: René Moser
-  description: Zabbix agent role
+  description: Manages installation and configuration of Zabbix Agent
   company: Moser Systems
   license: MIT
   min_ansible_version: 1.4
