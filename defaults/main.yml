@@ -1,16 +1,20 @@
 ---
-# hostname of the zabbix server
-zabbix_agent_config_server: 'zabbix.{{ ansible_domain }}'
-
-# Bind agent to an IP, e.g. ansible_eth0.ipv4.address
-zabbix_agent_config_listen_ip: '0.0.0.0'
-
-# Name of the host
+zabbix_agent_config_server: zabbix.{{ ansible_domain }}
+zabbix_agent_config_listen_ip: 0.0.0.0
+zabbix_agent_config_server_active: 127.0.0.1
 zabbix_agent_config_hostname: '{{ ansible_fqdn }}'
+zabbix_agent_config_start_agents: 3
+zabbix_agent_config_host_meta_data: ''
 
-# Package state:
-# NOTE: absent does not yet work as expected.
+# NOTE: keep the trailing / !
+zabbix_agent_config_include: /etc/zabbix/zabbix_agentd.d/
+zabbix_agent_config_include_confs: []
+
+# Package states: installed or latest
 zabbix_agent_pkg_state: installed
 
+# Service states: started or stopped
 zabbix_agent_service_state: started
+
+# Service enabled: yes or no
 zabbix_agent_service_enabled: yes

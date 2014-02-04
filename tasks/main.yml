@@ -1,10 +1,10 @@
 ---
-- name: install zabbix agent
+- name: install zabbix agent for Debian OS family
   apt: pkg=zabbix-agent state={{ zabbix_agent_pkg_state }}
   when: ansible_os_family == 'Debian'
   tags: package
 
-- name: install zabbix agent
+- name: install zabbix agent for RedHat OS family
   yum: name=zabbix-agent state={{ zabbix_agent_pkg_state }}
   when: ansible_os_family == 'RedHat'
   tags: package
@@ -14,6 +14,16 @@
   notify: restart zabbix-agent
   tags: configuration
 
-- name: start/stop zabbix agent
+- name: create zabbix agent optional config directory
+  file: path={{ zabbix_agent_config_include }} state=directory
+  tags: configuration
+
+- name: copy additional configs
+  copy: src={{ item }} dest={{ zabbix_agent_config_include }}/
+  with_items: zabbix_agent_config_include_confs
+  notify: restart zabbix-agent
+  tags: configuration
+
+- name: ensure zabbix agent started/stopped
   service: name=zabbix-agent state={{ zabbix_agent_service_state }} enabled={{ zabbix_agent_service_enabled }}
   tags: service
