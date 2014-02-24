@@ -15,7 +15,7 @@ NOTE: `gather_facts` must be set to `yes`.
       - resmo.zabbix-agent
 
 ## Dependencies
-- resmo.zabbix-common (https://github.com/resmo/ansible-role-zabbix-agent)
+- resmo.zabbix-common (https://github.com/resmo/ansible-role-zabbix-common)
 
 ## License
 MIT
