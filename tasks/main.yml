@@ -19,7 +19,7 @@
   tags: configuration
 
 - name: copy additional configs
-  copy: src={{ item }} dest={{ zabbix_agent_config_include }}/
+  template: src={{ item }} dest={{ zabbix_agent_config_include }}/
   with_items: zabbix_agent_config_include_confs
   notify: restart zabbix-agent
   tags: configuration
